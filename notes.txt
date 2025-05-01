@@ -1,0 +1,31 @@
+_____________________________________________________________________________________
+
+Image and Text tokens combined structures.
+
+During training:
+    - <IMAGE_TOKENs><BOS><INPUT_TEXT_TOKENS><SEP><OUTPUT_TEXT_TOKENS><EOS><PAD>
+    - If batching sequences together, shorter sequences are padded so that all sequences in a batch share the same length.
+
+During Inference:
+    - <IMAGE_TOKENs><BOS><INPUT_TEXT_TOKENS>
+
+______________________________________________________________________________________
+
+1. the contrasive learning
+2. CLIP : structure
+    problem with CLIP : cross entropy loss
+                       softmax (because of the Exponentiation the values 
+                       grows largely this is not stable numerically)
+    Due the asymmetry of the softmax loss, the normalization is independently 
+    performed two items(across row and across columns)
+    (across images embds and across texts embds)
+
+    CLIP is very computationally expensive to compute contrastive loss
+
+
+ 3. SIGLIP : using sigmoid activation. (binary values)
+
+______________________________________________________________________________________
+
+
+

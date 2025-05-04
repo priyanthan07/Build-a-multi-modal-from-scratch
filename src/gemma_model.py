@@ -449,7 +449,6 @@ class PaliGemmaModel(nn.Module):
             position_ids = attention_mask.cumsum(-1)[:, -1]
             if position_ids.dim() ==1:
                 position_ids = position_ids.unsqueeze(0)
-            print("Position IDs:", position_ids)
         else:
             position_ids = (attention_mask.cumsum(-1)).masked_fill_((attention_mask == 0),1).to(device)
         return final_embedding, causal_mask, position_ids
